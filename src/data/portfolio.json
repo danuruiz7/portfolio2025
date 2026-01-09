@@ -1,0 +1,145 @@
+{
+  "basics": {
+    "name": "Daniel Ruiz",
+    "headline": "Full Stack & Automatización",
+    "subHeadline": "Transformando ideas en experiencias digitales de alto impacto.",
+    "image": "images/me.webp",
+    "email": "danuruiz7@hotmail.com",
+    "links": {
+      "github": "https://github.com/DanuRuiz7",
+      "linkedin": "https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
+    },
+    "actions": [
+      {
+        "label": "Proyectos",
+        "href": "#projects",
+        "variant": "primary",
+        "target": "",
+        "rel": ""
+      },{
+        "label": "Contacto",
+        "href": "https://www.linkedin.com/in/daniel-elias-ruiz-medina/",
+        "variant": "secondary",
+        "target": "_blank",
+        "rel": "noopener noreferrer"       
+      }
+    ]
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Desarrollador con más de 3 años de experiencia creando soluciones eficientes. Me especializo en desarrollo Full Stack, personalización de sistemas CRM/ERP e integración de IA. Con fuerte enfoque en Next.js, orquestación con Docker y automatización, busco siempre la excelencia técnica."
+  },
+  "stack": [
+    {
+      "category": "Frontend",
+      "technologies": [
+        "React",
+        "Next.js",
+        "Astro",
+        "Vue.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ]
+    },
+    {
+      "category": "Backend",
+      "technologies": [
+        "Node.js",
+        "Express",
+        "PHP",
+        "Java"
+      ]
+    },
+    {
+      "category": "Database",
+      "technologies": [
+        "PostgreSQL",
+        "MySQL",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "category": "DevOps & Tools",
+      "technologies": [
+        "Docker",
+        "n8n",
+        "Git",
+        "Jira"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "AMURA IT",
+      "role": "Desarrollador full stack",
+      "date": "Abr 2025 - Actualidad",
+      "description": "Desarrollo de plataforma logística para gestión de camiones y entregas. Implementación de microservicios backend en Node.js y UI en Vue.js. Gestión de datos complejos con MySQL y Elasticsearch.",
+      "skills": [
+        "Vue.js",
+        "Node.js",
+        "Microservicios",
+        "Elasticsearch",
+        "MySQL",
+        "Jira"
+      ],
+      "type": "Híbrido - Madrid"
+    },
+    {
+      "company": "Tracom Consulting",
+      "role": "Desarrollador full stack",
+      "date": "Dic 2023 - Abr 2025",
+      "description": "Personalización de Dolibarr CRM/ERP y desarrollo de módulos con IA (API OpenAI) para automatización de facturas. Modernización del frontend introduciendo React y creación de herramientas internas con Next.js.",
+      "skills": [
+        "React",
+        "Next.js",
+        "PHP",
+        "Dolibarr",
+        "OpenAI API",
+        "Automatización"
+      ],
+      "type": "Híbrido - Madrid"
+    }
+  ],
+  "projects": [
+    {
+      "title": "TattoCrm",
+      "description": "CRM especializado para estudios de tatuajes con gestión de citas y clientes.",
+      "tags": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "links": {
+        "demo": "#",
+        "repo": "#"
+      },
+      "image": "images/tatto.png"
+    },
+    {
+      "title": "Quiz App",
+      "description": "Aplicación interactiva de preguntas y respuestas con gamificación.",
+      "tags": [
+        "Astro",
+        "React",
+        "Tailwind"
+      ],
+      "links": {
+        "demo": "#",
+        "repo": "#"
+      },
+      "image": "images/quizapp.png"
+    },
+    {
+      "title": "DC Pastel",
+      "description": "E-commerce para una pastelería artesanal con pasarela de pagos.",
+      "tags": [
+        "Astro"
+      ],
+      "links": {
+        "demo": "#",
+        "repo": "#"
+      },
+      "image": "images/dcpastel.png"
+    }
+  ]
+}

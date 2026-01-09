@@ -1,0 +1,106 @@
+---
+import { basics } from "../data/portfolio.json";
+import { ArrowRight, FileText } from "lucide-react";
+import SocialLinks from "./SocialLinks.astro";
+import { Image } from 'astro:assets';
+
+const { name, headline, subHeadline, actions, image, links, email } = basics;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
+const imagePath = `/src/assets/${image}`;
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`);
+---
+
+<section class="min-h-[80vh] flex items-center justify-center pt-20 pb-10">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+    
+    <div class="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 order-2 lg:order-1">
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+        </span>
+        <span class="text-sm font-medium text-indigo-400 tracking-wider uppercase">Disponible para trabajar</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 text-balance">
+        {name}
+        <span class="block">
+          <span id="typewriter" class="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400" data-text={headline}></span>
+          <span class="animate-pulse text-indigo-400 inline-block ml-1">|</span>
+        </span>
+      </h1>
+
+      <p class="text-xl text-slate-300 max-w-2xl text-pretty leading-relaxed">
+        {subHeadline}
+      </p>
+
+      <div class="flex flex-wrap gap-4 pt-8 pb-8 border-b border-slate-800/50">
+        {actions.map((action) => (
+          <a 
+            target={action.target}
+            rel={action.rel}
+            href={action.href}
+            class={`
+              inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300
+              ${action.variant === 'primary' 
+                ? 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40 hover:-translate-y-1' 
+                : 'bg-slate-800/50 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600'
+              }
+            `}
+          >
+            {action.label === 'Descargar CV' ? <FileText className="w-5 h-5" /> : null}
+            {action.label}
+            {action.variant === 'primary' ? <ArrowRight className="w-5 h-5 ml-1" /> : null}
+          </a>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-6 pt-4">
+        <div class="flex gap-4">
+            <SocialLinks variant="hero" />
+        </div>
+      </div>
+    </div>
+
+    <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end animate-in fade-in zoom-in duration-1000 delay-200">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-125 lg:h-125">
+            <div class="absolute inset-0 bg-linear-to-tr from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+            <Image 
+                src={images[imagePath]()} 
+                alt={name}
+                width={500}
+                height={500}
+                loading="eager"
+                fetchpriority="high"
+                class="relative z-10 w-full h-full object-cover rounded-full border-2 border-slate-800 shadow-2xl shadow-indigo-500/10 transition-all duration-500 hover:scale-[1.1] hover:rotate-3 hover:border-indigo-500/50 hover:shadow-indigo-500/40"
+            />
+            {/* Decorative orbit ring */}
+            <div class="absolute inset-0 rounded-full border border-white/5 scale-110 animate-[spin_10s_linear_infinite] pointer-events-none"></div>
+        </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+    const typeWriter = document.getElementById('typewriter');
+    if (typeWriter) {
+        const text = typeWriter.getAttribute('data-text') || '';
+        typeWriter.textContent = '';
+        
+        let i = 0;
+        const speed = 100; // ms per char
+
+        function type() {
+            if (i < text.length && typeWriter) {
+                typeWriter.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            }
+        }
+        
+        // Start after a slight delay
+        setTimeout(type, 200); 
+    }
+</script>
