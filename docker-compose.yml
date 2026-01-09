@@ -1,15 +1,5 @@
-version: '3.8'
-
 services:
-  frontend:
-    # Nombre del contenedor
-    container_name: portfolio-front
-    
-    # Construir usando el Dockerfile del directorio actual
-    build:
-      context: .
-      dockerfile: Dockerfile
-    
-    # Reiniciar siempre si falla
+  portfolio:
+    build: .
+    container_name: portfolio_front
     restart: always
-
