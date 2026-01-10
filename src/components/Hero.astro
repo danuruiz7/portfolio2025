@@ -15,18 +15,18 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
     
     <div class="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 order-2 lg:order-1">
-      <div class="flex items-center gap-2">
+      <!-- <div class="flex items-center gap-2">
         <span class="relative flex h-3 w-3">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
         </span>
         <span class="text-sm font-medium text-indigo-400 tracking-wider uppercase">Disponible para trabajar</span>
-      </div>
+      </div> -->
       
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 text-balance">
         {name}
         <span class="block">
-          <span id="typewriter" class="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400" data-text={headline}></span>
+          <span id="typewriter" class="text-3xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400" data-text={headline}></span>
           <span class="animate-pulse text-indigo-400 inline-block ml-1">|</span>
         </span>
       </h1>
