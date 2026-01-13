@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import { getImage } from "astro:assets";
 import meImage from "../assets/images/me.webp";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
 	title: string;
@@ -70,5 +71,6 @@ const socialImageURL = new URL(optimizedImage.src, Astro.url);
       setupObserver();
       document.addEventListener('astro:after-swap', setupObserver);
     </script>
+    <Analytics />
 	</body>
 </html>
