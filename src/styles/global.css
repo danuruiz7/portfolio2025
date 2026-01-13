@@ -30,4 +30,17 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 1s ease-out;
+    filter: blur(4px);
+  }
+  
+  .reveal-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }

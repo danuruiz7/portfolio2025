@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import "@fontsource/inter";
 import { ClientRouter } from "astro:transitions";
+import { getImage } from "astro:assets";
+import meImage from "../assets/images/me.webp";
 
 interface Props {
 	title: string;
@@ -9,6 +11,8 @@ interface Props {
 }
 
 const { title, description = "Daniel Ruiz - Full Stack Developer & Automation Expert" } = Astro.props;
+const optimizedImage = await getImage({src: meImage, format: 'webp'});
+const socialImageURL = new URL(optimizedImage.src, Astro.url);
 ---
 
 <!doctype html>
@@ -24,13 +28,13 @@ const { title, description = "Daniel Ruiz - Full Stack Developer & Automation Ex
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL("/src/assets/images/me.webp", Astro.url)} />
+		<meta property="og:image" content={socialImageURL} />
 
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL("/src/assets/images/me.webp", Astro.url)} />
+		<meta property="twitter:image" content={socialImageURL} />
 
 		<title>{title}</title>
 		<ClientRouter />
@@ -40,5 +44,29 @@ const { title, description = "Daniel Ruiz - Full Stack Developer & Automation Ex
 		<main class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<slot />
 		</main>
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+    
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+    
+      function setupObserver() {
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+      }
+      
+      setupObserver();
+      document.addEventListener('astro:after-swap', setupObserver);
+    </script>
 	</body>
 </html>

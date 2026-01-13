@@ -1,7 +1,9 @@
 ---
-import { basics } from "../data/portfolio.json";
+import portfolioData from "../data/portfolio.json";
+import type { PortfolioData } from "../types/portfolio";
 import { Mail } from "lucide-react";
 
+const { basics } = portfolioData as PortfolioData;
 const { links, email } = basics;
 interface Props {
   variant?: 'hero' | 'footer';

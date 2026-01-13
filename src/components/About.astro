@@ -1,11 +1,13 @@
 ---
-import { about } from "../data/portfolio.json";
+import portfolioData from "../data/portfolio.json";
+import type { PortfolioData } from "../types/portfolio";
 import { User } from "lucide-react";
 
+const { about } = portfolioData as PortfolioData;
 const { title, description } = about;
 ---
 
-<section id="about" class="py-20 scroll-mt-20">
+<section id="about" class="py-20 scroll-mt-20 reveal-on-scroll">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
     <div class="md:col-span-4">
       <div class="sticky top-24 flex items-center gap-3 mb-6">
