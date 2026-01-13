@@ -2,6 +2,23 @@
 
 @plugin "tailwindcss-animate";
 
+/* Custom Font Face Definitions */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-700.woff2') format('woff2');
+}
+
 @theme {
   --color-primary: var(--color-indigo-500);
   --color-primary-foreground: var(--color-white);
