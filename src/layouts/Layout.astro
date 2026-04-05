@@ -8,11 +8,30 @@ import Analytics from "@vercel/analytics/astro";
 interface Props {
 	title: string;
 	description?: string;
+	robots?: string;
 }
 
-const { title, description = "Daniel Ruiz - Full Stack Developer & Automation Expert" } = Astro.props;
+const {
+	title,
+	description = "Daniel Ruiz - Full Stack Developer & Automation Expert",
+	robots = "index,follow"
+} = Astro.props;
 const optimizedImage = await getImage({src: meImage, format: 'webp'});
 const socialImageURL = new URL(optimizedImage.src, Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Daniel Ruiz",
+	url: canonicalURL.toString(),
+	image: socialImageURL.toString(),
+	jobTitle: "Full Stack Developer",
+	email: "mailto:danuruiz7@hotmail.com",
+	sameAs: [
+		"https://github.com/DanuRuiz7",
+		"https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
+	]
+};
 ---
 
 <!doctype html>
@@ -20,7 +39,9 @@ const socialImageURL = new URL(optimizedImage.src, Astro.url);
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
+		<meta name="robots" content={robots} />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="canonical" href={canonicalURL} />
 		<link rel="icon" type="image/svg+xml" href="/logowhite.svg" />
 		<meta name="generator" content={Astro.generator} />
 
@@ -38,6 +59,7 @@ const socialImageURL = new URL(optimizedImage.src, Astro.url);
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={socialImageURL} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 		<title>{title}</title>
 		<ClientRouter />

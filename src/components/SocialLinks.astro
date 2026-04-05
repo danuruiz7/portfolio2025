@@ -12,8 +12,8 @@ interface Props {
 const { variant = 'footer' } = Astro.props;
 
 const variants = {
-  hero: "p-2 rounded-lg bg-slate-800/50 text-slate-300 hover:text-white hover:bg-slate-700 transition-all duration-300 border border-slate-700 hover:border-slate-500 hover:scale-[1.3]",
-  footer: "text-slate-300 hover:text-white transition-all duration-300 hover:scale-110"
+  hero: "p-2 rounded-lg bg-slate-800/50 text-slate-300 hover:text-white hover:bg-slate-700 transition-all duration-300 border border-slate-700 hover:border-slate-500 hover:scale-[1.3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
+  footer: "text-slate-300 hover:text-white transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md"
 };
 
 const styles = variants[variant];

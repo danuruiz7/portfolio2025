@@ -6,7 +6,7 @@ import SocialLinks from "./SocialLinks.astro";
 import { Image } from 'astro:assets';
 
 const { basics } = portfolioData as PortfolioData;
-const { name, headline, subHeadline, actions, image, links, email } = basics;
+const { name, headline, subHeadline, actions, image } = basics;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
 const imagePath = `/src/assets/${image}`;
@@ -28,8 +28,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 text-balance">
         {name}
         <span class="block">
-          <span id="typewriter" class="text-3xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400" data-text={headline}></span>
-          <span class="animate-pulse text-indigo-400 inline-block ml-1">|</span>
+          <span class="text-3xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400">{headline}</span>
         </span>
       </h1>
 
@@ -45,6 +44,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
             href={action.href}
             class={`
               inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
               ${action.variant === 'primary' 
                 ? 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40 hover:-translate-y-1' 
                 : 'bg-slate-800/50 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600'
@@ -84,25 +84,3 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 
   </div>
 </section>
-
-<script>
-    const typeWriter = document.getElementById('typewriter');
-    if (typeWriter) {
-        const text = typeWriter.getAttribute('data-text') || '';
-        typeWriter.textContent = '';
-        
-        let i = 0;
-        const speed = 100; // ms per char
-
-        function type() {
-            if (i < text.length && typeWriter) {
-                typeWriter.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        // Start after a slight delay
-        setTimeout(type, 200); 
-    }
-</script>

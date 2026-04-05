@@ -12,7 +12,7 @@
     "actions": [
       {
         "label": "Proyectos",
-        "href": "#projects",
+        "href": "#experience",
         "variant": "primary",
         "target": "",
         "rel": ""
