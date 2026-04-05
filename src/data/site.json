@@ -5,10 +5,32 @@
     "subHeadline": "Transformando ideas en experiencias digitales de alto impacto.",
     "image": "images/me.webp",
     "email": "danuruiz7@hotmail.com",
+    "seoTitle": "Daniel Ruiz | Desarrollador Full Stack en Madrid",
+    "seoDescription": "Desarrollador full stack en Madrid especializado en aplicaciones web, automatización con IA, dashboards y software a medida.",
+    "footerText": "Daniel Ruiz. All rights reserved.",
     "links": {
       "github": "https://github.com/DanuRuiz7",
       "linkedin": "https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
     },
+    "nav": [
+      {
+        "href": "/",
+        "label": "Inicio"
+      },
+      {
+        "href": "/sobre-mi",
+        "label": "Sobre mí"
+      },
+      {
+        "href": "/servicios",
+        "label": "Servicios"
+      },
+      {
+        "href": "/proyectos",
+        "label": "Proyectos",
+        "disabled": true
+      }
+    ],
     "actions": [
       {
         "label": "Proyectos",
@@ -16,18 +38,15 @@
         "variant": "primary",
         "target": "",
         "rel": ""
-      },{
+      },
+      {
         "label": "Contacto",
         "href": "https://www.linkedin.com/in/daniel-elias-ruiz-medina/",
         "variant": "secondary",
         "target": "_blank",
-        "rel": "noopener noreferrer"       
+        "rel": "noopener noreferrer"
       }
     ]
-  },
-  "about": {
-    "title": "Sobre Mí",
-    "description": "Desarrollador con más de 3 años de experiencia creando soluciones eficientes. Me especializo en desarrollo Full Stack, personalización de sistemas CRM/ERP e integración de IA. Con fuerte enfoque en Next.js, orquestación con Docker y automatización, busco siempre la excelencia técnica."
   },
   "stack": [
     {
@@ -98,48 +117,6 @@
         "Automatización"
       ],
       "type": "Híbrido - Madrid"
-    }
-  ],
-  "projects": [
-    {
-      "title": "TattoCrm",
-      "description": "CRM especializado para estudios de tatuajes con gestión de citas y clientes.",
-      "tags": [
-        "React",
-        "Node.js",
-        "PostgreSQL"
-      ],
-      "links": {
-        "demo": "#",
-        "repo": "#"
-      },
-      "image": "images/tatto.png"
-    },
-    {
-      "title": "Quiz App",
-      "description": "Aplicación interactiva de preguntas y respuestas con gamificación.",
-      "tags": [
-        "Astro",
-        "React",
-        "Tailwind"
-      ],
-      "links": {
-        "demo": "#",
-        "repo": "#"
-      },
-      "image": "images/quizapp.png"
-    },
-    {
-      "title": "DC Pastel",
-      "description": "E-commerce para una pastelería artesanal con pasarela de pagos.",
-      "tags": [
-        "Astro"
-      ],
-      "links": {
-        "demo": "#",
-        "repo": "#"
-      },
-      "image": "images/dcpastel.png"
     }
   ]
 }

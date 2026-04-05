@@ -1,11 +1,10 @@
 ---
-import portfolioData from "../data/portfolio.json";
-import type { PortfolioData } from "../types/portfolio";
+import { portfolio } from "../data/portfolio";
 import { ArrowRight, FileText } from "lucide-react";
 import SocialLinks from "./SocialLinks.astro";
 import { Image } from 'astro:assets';
 
-const { basics } = portfolioData as PortfolioData;
+const { basics } = portfolio;
 const { name, headline, subHeadline, actions, image } = basics;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');

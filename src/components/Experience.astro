@@ -1,9 +1,8 @@
 ---
-import portfolioData from "../data/portfolio.json";
-import type { PortfolioData } from "../types/portfolio";
+import { portfolio } from "../data/portfolio";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 
-const { experience } = portfolioData as PortfolioData;
+const { experience } = portfolio;
 ---
 
 <section id="experience" class="py-20 scroll-mt-20 reveal-on-scroll">

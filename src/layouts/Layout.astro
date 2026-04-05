@@ -4,6 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import { getImage } from "astro:assets";
 import meImage from "../assets/images/me.webp";
 import Analytics from "@vercel/analytics/astro";
+import Header from "../components/Header.astro";
 
 interface Props {
 	title: string;
@@ -67,6 +68,7 @@ const structuredData = {
 	<body class="bg-background text-foreground antialiased selection:bg-indigo-500 selection:text-white">
 		<div class="fixed inset-0 -z-10 h-full w-full bg-slate-950 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] opacity-20"></div>
 		<main class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Header />
 			<slot />
 		</main>
     <script>

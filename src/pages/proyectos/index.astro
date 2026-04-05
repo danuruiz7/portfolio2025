@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Projects from "../../components/Projects.astro";
+import Footer from "../../components/Footer.astro";
+import { portfolio } from "../../data/portfolio";
+---
+
+<Layout
+  title={portfolio.pages.projects.title}
+  description={portfolio.pages.projects.description}
+>
+  <section class="py-16">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">{portfolio.pages.projects.eyebrow}</p>
+      <h1 class="mt-4 text-4xl font-bold text-white md:text-5xl">{portfolio.pages.projects.heading}</h1>
+      <p class="mt-6 text-lg leading-8 text-slate-400">
+        {portfolio.pages.projects.intro}
+      </p>
+    </div>
+  </section>
+  <Projects />
+  <Footer />
+</Layout>

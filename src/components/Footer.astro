@@ -1,16 +1,14 @@
 ---
-import portfolioData from "../data/portfolio.json";
-import type { PortfolioData } from "../types/portfolio";
+import { portfolio } from "../data/portfolio";
 import SocialLinks from "./SocialLinks.astro";
 
-const { basics } = portfolioData as PortfolioData;
-const { links, email } = basics;
+const { basics } = portfolio;
 ---
 
 <footer class="py-12 border-t border-slate-800">
   <div class="flex flex-col md:flex-row justify-between items-center gap-6">
     <div class="text-slate-400 text-sm">
-      &copy; {new Date().getFullYear()} Daniel Ruiz. All rights reserved.
+      &copy; {new Date().getFullYear()} {basics.footerText}
     </div>
     
     <div class="flex items-center gap-6">

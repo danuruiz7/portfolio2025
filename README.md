@@ -1,46 +1,132 @@
-# Astro Starter Kit: Basics
+# Portfolio 2025
 
-```sh
-npm create astro@latest -- --template basics
+Portfolio personal construido con Astro 5, Tailwind CSS v4 y despliegue estático sobre Nginx.
+
+## Stack
+
+- Astro 5
+- Tailwind CSS 4
+- React 19 disponible para islas si hace falta
+- Bun para build en Docker
+- Nginx para servir `dist/`
+
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+  components/      Componentes de UI
+  data/            Datos del sitio separados por dominio/página
+  layouts/         Layout base y metadatos SEO
+  pages/           Rutas estáticas y sitemap
+  styles/          CSS global
+  types/           Tipos TypeScript del contenido
+public/
+  fonts/           Fuentes locales
+  robots.txt       Reglas de rastreo
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Datos del proyecto
 
-## 🧞 Commands
+Toda la información editable sale de `src/data/`.
 
-All commands are run from the root of the project, from a terminal:
+- `site.json`: navegación, hero, links, stack y experiencia
+- `home.json`: contenido de home, about y FAQ
+- `about.json`: SEO y copy de `/sobre-mi`
+- `services.json`: servicios y copy de `/servicios`
+- `projects.json`: proyectos y copy de `/proyectos` y `/proyectos/[slug]`
+- `portfolio.ts`: agregador de todos los JSON en un único objeto tipado
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Si vas a cambiar contenido, toca primero esos JSON. No metas copy nuevo en componentes salvo que sea texto puramente estructural o técnico.
 
-## 👀 Want to learn more?
+## Rutas
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `/`
+- `/sobre-mi`
+- `/servicios`
+- `/proyectos`
+- `/proyectos/[slug]`
+- `/sitemap.xml`
+
+## SEO
+
+El layout base en `src/layouts/Layout.astro` gestiona:
+
+- `title`
+- `description`
+- `canonical`
+- `robots`
+- Open Graph
+- Twitter Cards
+- JSON-LD básico
+
+El sitemap es dinámico desde `src/pages/sitemap.xml.ts`.
+
+## Imágenes
+
+Las imágenes de proyectos y perfil viven en `src/assets/images/`.
+
+Cuando añadas un proyecto:
+
+1. añade la imagen en `src/assets/images/`
+2. registra el proyecto en `src/data/projects.json`
+3. usa un `slug` único
+
+## Desarrollo
+
+Instalación:
+
+```bash
+npm install
+```
+
+Servidor local:
+
+```bash
+npm run dev
+```
+
+Build de producción:
+
+```bash
+npm run build
+```
+
+## Docker
+
+Build multi-stage:
+
+- etapa 1: Bun instala dependencias y genera `dist/`
+- etapa 2: Nginx sirve el contenido estático
+
+Archivos implicados:
+
+- `Dockerfile`
+- `docker-compose.yml`
+- `nginx.conf`
+
+Levantar con Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+## Convenciones
+
+- Contenido en JSON, no hardcodeado en páginas
+- SEO por página desde datos
+- Componentes presentacionales simples
+- Rutas de proyectos generadas estáticamente desde data
+
+## Pendiente recomendable
+
+- Sustituir `#` en demos/repos por URLs reales
+- Añadir `astro check` si se instala `@astrojs/check`
+- Separar también `experience` y `stack` en JSON dedicados si el contenido sigue creciendo

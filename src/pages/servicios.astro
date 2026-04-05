@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Faq from "../components/Faq.astro";
+import { portfolio } from "../data/portfolio";
+
+const { services, pages } = portfolio;
+---
+
+<Layout
+  title={pages.services.title}
+  description={pages.services.description}
+>
+  <section class="py-16">
+    <div class="max-w-4xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">{pages.services.eyebrow}</p>
+      <h1 class="mt-4 text-4xl font-bold text-white md:text-5xl">
+        {pages.services.heading}
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-slate-400">
+        {pages.services.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <div class="grid gap-6 lg:grid-cols-3">
+      {services.map((service) => (
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
+          <p class="text-sm font-medium text-indigo-300">{service.summary}</p>
+          <h2 class="mt-3 text-2xl font-semibold text-white">{service.title}</h2>
+          <p class="mt-4 leading-7 text-slate-400">{service.description}</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300">
+            {service.deliverables.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Faq />
+  <Footer />
+</Layout>

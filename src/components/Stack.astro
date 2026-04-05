@@ -1,9 +1,8 @@
 ---
-import portfolioData from "../data/portfolio.json";
-import type { PortfolioData } from "../types/portfolio";
+import { portfolio } from "../data/portfolio";
 import { Monitor, Server, Box, Layers, Code2, Database, Container, Terminal, Cpu } from "lucide-react";
 
-const { stack } = portfolioData as PortfolioData;
+const { stack } = portfolio;
 
 // Helper to get icon for category
 const getIcon = (category: string) => {
