@@ -76,6 +76,8 @@ const hasRepo = (repo?: string) => repo && repo.length > 0;
                     {isRepoAvailable ? (
                         <a 
                             href={project.links.repo} 
+                            target="_blank"
+                            rel="noopener noreferrer"
                             class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white hover:text-indigo-400 transition-colors border border-white/10"
                             title="Ver Repositorio"
                             aria-label={`Ver código fuente de ${project.title}`}
@@ -100,6 +102,8 @@ const hasRepo = (repo?: string) => repo && repo.length > 0;
                     
                     <a 
                         href={project.links.demo} 
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/20"
                     >
                         {pages.projects.demoLabel.replace("Ver ", "")} <ExternalLink className="w-4 h-4" />

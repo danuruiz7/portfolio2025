@@ -86,6 +86,8 @@ const isRepoAvailable = hasRepo(project.links.repo);
         <div class="mt-6 flex flex-wrap gap-3">
           <a
             href={project.links.demo}
+            target="_blank"
+            rel="noopener noreferrer"
             class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             {projectsPage.demoLabel}
@@ -94,6 +96,8 @@ const isRepoAvailable = hasRepo(project.links.repo);
           {isRepoAvailable ? (
             <a
               href={project.links.repo}
+              target="_blank"
+              rel="noopener noreferrer"
               class="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               {projectsPage.repoLabel}
