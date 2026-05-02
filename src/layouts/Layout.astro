@@ -140,7 +140,7 @@ const structuredDataWebSite = {
           return localStorage.getItem(PREFERRED_LOCALE_KEY) === 'true';
         }
         
-        function setPreference(locale) {
+        function setPreference(locale: string) {
           localStorage.setItem(STORAGE_KEY, locale);
           localStorage.setItem(PREFERRED_LOCALE_KEY, 'true');
         }
