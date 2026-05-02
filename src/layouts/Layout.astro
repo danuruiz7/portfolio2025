@@ -32,7 +32,7 @@ const alternateEs = translatePath(currentPath, "es");
 const canonicalEnURL = new URL(alternateEn, SITE);
 const canonicalEsURL = new URL(alternateEs, SITE);
 
-const structuredData = {
+const structuredDataPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Daniel Ruiz",
@@ -44,6 +44,21 @@ const structuredData = {
     "https://github.com/DanuRuiz7",
     "https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
   ]
+};
+
+const structuredDataWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Daniel Ruiz Portfolio",
+  url: SITE,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE}en/projects?search={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
 };
 ---
 
@@ -76,7 +91,8 @@ const structuredData = {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredDataPerson)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredDataWebSite)} />
 
     <title>{title}</title>
   </head>
