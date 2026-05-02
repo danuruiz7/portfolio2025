@@ -1,15 +1,9 @@
 ---
 import { portfolio } from "../data/portfolio";
 import { Github, ExternalLink, ArrowUpRight, FolderOpen } from "lucide-react";
-import { Image } from 'astro:assets';
 
 const { projects, pages } = portfolio;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
-if (!projects.every(p => images[`/src/assets/${p.image}`])) {
-    const missing = projects.filter(p => !images[`/src/assets/${p.image}`]).map(p => p.image);
-    throw new Error(`Missing images in glob: ${missing.join(', ')}`);
-}
-
+const hasRepo = (repo?: string) => repo && repo.length > 0;
 ---
 
 <section id="projects" class="py-20 scroll-mt-20">
@@ -27,25 +21,26 @@ if (!projects.every(p => images[`/src/assets/${p.image}`])) {
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-[400px]">
-      {projects.map((project, index) => (
+      {projects.map((project, index) => {
+        const isRepoAvailable = hasRepo(project.links.repo);
+        return (
         <article class={`
             group relative flex flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all duration-500
             ${index === 0 ? 'lg:col-span-1' : ''}
         `}>
-          {/* Background Gradient/Image Placeholder */}
           <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/50 to-transparent z-10"></div>
           
-           {project.image && (
-             <div class="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-105">
-                <Image 
-                  src={images[`/src/assets/${project.image}`]()} 
+            {project.image && (
+              <div class="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-105">
+                <img 
+                  src={project.image} 
                   alt={project.title} 
                   class="w-full h-full object-cover"
                   width={600}
                   height={400}
                 />
-             </div>
-           )}
+              </div>
+            )}
 
           <div class="relative z-20 p-8 flex flex-col h-full justify-end">
             <div class="mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -77,14 +72,32 @@ if (!projects.every(p => images[`/src/assets/${p.image}`])) {
                     >
                         {pages.projects.caseStudyLabel}
                     </a>
-                    <a 
-                        href={project.links.repo} 
-                        class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white hover:text-indigo-400 transition-colors border border-white/10"
-                        title="Ver Repositorio"
-                        aria-label={`Ver código fuente de ${project.title}`}
-                    >
-                        <Github className="w-5 h-5" />
-                    </a>
+                    
+                    {isRepoAvailable ? (
+                        <a 
+                            href={project.links.repo} 
+                            class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white hover:text-indigo-400 transition-colors border border-white/10"
+                            title="Ver Repositorio"
+                            aria-label={`Ver código fuente de ${project.title}`}
+                        >
+                            <Github className="w-5 h-5" />
+                        </a>
+                    ) : (
+                        <div class="relative group/tooltip">
+                            <button 
+                                disabled
+                                class="p-2 rounded-lg bg-slate-800/50 text-slate-500 border border-slate-700/50 cursor-not-allowed"
+                                title={pages.projects.noRepoTooltip}
+                                aria-label={pages.projects.noRepoTooltip}
+                            >
+                                <Github className="w-5 h-5" />
+                            </button>
+                            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-slate-800 rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                                {pages.projects.noRepoTooltip}
+                            </div>
+                        </div>
+                    )}
+                    
                     <a 
                         href={project.links.demo} 
                         class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/20"
@@ -95,7 +108,7 @@ if (!projects.every(p => images[`/src/assets/${p.image}`])) {
             </div>
           </div>
         </article>
-      ))}
+      )})}
     </div>
   </div>
 </section>

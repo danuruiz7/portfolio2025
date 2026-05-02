@@ -3,8 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import { portfolio } from "../../data/portfolio";
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
-
 export function getStaticPaths() {
   return portfolio.projects.map((project) => ({
     params: { slug: project.slug },
@@ -13,9 +11,9 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const imagePath = `/src/assets/${project.image}`;
-if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in project image glob.`);
 const projectsPage = portfolio.pages.projects;
+const hasRepo = (repo?: string) => repo && repo.length > 0;
+const isRepoAvailable = hasRepo(project.links.repo);
 ---
 
 <Layout title={project.seoTitle} description={project.seoDescription}>
@@ -43,11 +41,13 @@ const projectsPage = portfolio.pages.projects;
       </div>
 
       <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-6">
-        <img
-          src={images[imagePath]().src}
-          alt={project.title}
-          class="h-full w-full rounded-2xl object-cover"
-        />
+        {project.image && (
+          <img
+            src={project.image}
+            alt={project.title}
+            class="h-full w-full rounded-2xl object-cover"
+          />
+        )}
       </div>
     </div>
   </article>
@@ -90,12 +90,28 @@ const projectsPage = portfolio.pages.projects;
           >
             {projectsPage.demoLabel}
           </a>
-          <a
-            href={project.links.repo}
-            class="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-          >
-            {projectsPage.repoLabel}
-          </a>
+          
+          {isRepoAvailable ? (
+            <a
+              href={project.links.repo}
+              class="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            >
+              {projectsPage.repoLabel}
+            </a>
+          ) : (
+            <div class="relative group/tooltip">
+              <button 
+                disabled
+                class="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-500 cursor-not-allowed"
+                title={projectsPage.noRepoTooltip}
+              >
+                {projectsPage.repoLabel}
+              </button>
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-slate-800 rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                {projectsPage.noRepoTooltip}
+              </div>
+            </div>
+          )}
         </div>
 
         <div class="mt-8">

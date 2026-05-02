@@ -52,7 +52,7 @@ export interface ExperienceJob {
 
 export interface ProjectLinks {
   demo: string;
-  repo: string;
+  repo?: string;
 }
 
 export interface Project {
@@ -119,6 +119,7 @@ export interface ProjectsPage {
   keywordsTitle: string;
   demoLabel: string;
   repoLabel: string;
+  noRepoTooltip: string;
 }
 
 export interface HomePage {

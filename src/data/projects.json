@@ -1,104 +1,43 @@
 {
   "projects": [
     {
-      "slug": "tattocrm",
-      "title": "TattoCrm",
-      "description": "CRM especializado para estudios de tatuajes con gestión de citas y clientes.",
-      "seoTitle": "TattoCrm | CRM para estudios de tatuajes",
-      "seoDescription": "Caso de estudio de un CRM para estudios de tatuajes con gestión de clientes, agenda y seguimiento operativo.",
+      "slug": "traductor-ai",
+      "title": "Traductor AI",
+      "description": "Extensión de Chrome con traducción automática usando la API del navegador. Traduce cualquier texto al instante sin biaya API.",
+      "seoTitle": "Traductor AI | Extensión de Chrome con IA",
+      "seoDescription": "Extensión de Chrome que traduce cualquier texto usando la API gratuita del navegador. Rápida, sin coste de API y disponible en español.",
       "tags": [
-        "React",
-        "Node.js",
-        "PostgreSQL"
+        "Chrome Extension",
+        "JavaScript",
+        "AI"
       ],
       "keywords": [
-        "crm para tatuajes",
-        "gestion de citas",
-        "software para estudios"
+        "extensión chrome traducción",
+        "traductor ia gratis",
+        "chrome extension translate"
       ],
-      "challenge": "Centralizar agenda, clientes e historial en un flujo operativo simple para estudios con alta rotación de citas.",
-      "solution": "Diseño de un CRM específico con panel de gestión, seguimiento de clientes y soporte para procesos diarios del estudio.",
-      "outcome": "Mejora de visibilidad operativa y reducción de trabajo manual en la gestión de reservas y datos.",
+      "challenge": "Necesidad de traducir textos rápidamente sin salir de la página web y sin coste de API.",
+      "solution": "Desarrollo de extensión de Chrome que utiliza la API gratuita del navegador para traducción instantánea.",
+      "outcome": "Extensión publicada en Chrome Web Store con traducción sin coste de API y disponible para cualquier idioma.",
       "deliverables": [
-        "Panel de administración",
-        "Gestión de clientes",
-        "Agenda de citas",
-        "Modelo de datos relacional"
+        "Extensión publicada en Chrome Web Store",
+        "Interfaz minimalista",
+        "Traducción con API gratuita",
+        "Soporte multilenguaje"
       ],
       "links": {
-        "demo": "#",
-        "repo": "#"
+        "demo": "https://chromewebstore.google.com/detail/dnnbpmlfihimogfpcpbfieplgeaolgnk?utm_source=item-share-cb"
       },
-      "image": "images/tatto.png"
-    },
-    {
-      "slug": "quiz-app",
-      "title": "Quiz App",
-      "description": "Aplicación interactiva de preguntas y respuestas con gamificación.",
-      "seoTitle": "Quiz App | Aplicación interactiva con Astro y React",
-      "seoDescription": "Proyecto frontend de una app de preguntas y respuestas con experiencia interactiva y gamificación ligera.",
-      "tags": [
-        "Astro",
-        "React",
-        "Tailwind"
-      ],
-      "keywords": [
-        "astro react app",
-        "quiz interactivo",
-        "frontend gamificado"
-      ],
-      "challenge": "Crear una experiencia ligera, rápida y visualmente clara para sesiones de preguntas con feedback inmediato.",
-      "solution": "Construcción de una interfaz basada en Astro con islas de React para la parte interactiva y Tailwind para velocidad de iteración.",
-      "outcome": "Experiencia rápida, responsive y fácil de extender para nuevos cuestionarios o dinámicas.",
-      "deliverables": [
-        "Interfaz responsive",
-        "Lógica interactiva",
-        "Estados de progreso",
-        "Arquitectura híbrida Astro + React"
-      ],
-      "links": {
-        "demo": "#",
-        "repo": "#"
-      },
-      "image": "images/quizapp.png"
-    },
-    {
-      "slug": "dc-pastel",
-      "title": "DC Pastel",
-      "description": "E-commerce para una pastelería artesanal con pasarela de pagos.",
-      "seoTitle": "DC Pastel | E-commerce para pastelería artesanal",
-      "seoDescription": "Proyecto de e-commerce para una pastelería artesanal con catálogo, proceso de compra y enfoque visual de marca.",
-      "tags": [
-        "Astro"
-      ],
-      "keywords": [
-        "ecommerce astro",
-        "tienda online pasteleria",
-        "web para negocio local"
-      ],
-      "challenge": "Crear una tienda online clara y visual para un negocio local con catálogo cuidado y proceso de compra sencillo.",
-      "solution": "Desarrollo de un e-commerce orientado a marca, con navegación limpia, páginas de producto y estructura preparada para conversión.",
-      "outcome": "Presencia digital más sólida y base escalable para catálogo, pedidos y comunicación comercial.",
-      "deliverables": [
-        "Catálogo de productos",
-        "Diseño enfocado a marca",
-        "Flujo de compra",
-        "Arquitectura preparada para crecimiento"
-      ],
-      "links": {
-        "demo": "#",
-        "repo": "#"
-      },
-      "image": "images/dcpastel.png"
+      "image": "/proyectos/traductorAI/traductor_logo.png"
     }
   ],
   "page": {
     "title": "Proyectos | Daniel Ruiz",
-    "description": "Selección de proyectos de desarrollo web, automatización e interfaces construidos por Daniel Ruiz.",
-    "eyebrow": "Proyectos",
-    "heading": "Casos de estudio y proyectos destacados",
-    "intro": "Implementaciones centradas en producto, procesos internos, e-commerce y experiencias interactivas.",
-    "sectionTitle": "Proyectos destacados",
+    "description": "Proyectos de desarrollo web, extensiones Chrome y automatización construidos por Daniel Ruiz.",
+    "eyebrow": "Proyecto",
+    "heading": "Proyecto en producción",
+    "intro": "Extensión de Chrome funcional disponible en Chrome Web Store.",
+    "sectionTitle": "Proyecto",
     "viewAllLabel": "Ver todos",
     "caseStudyLabel": "Caso de estudio",
     "backLabel": "Volver a proyectos",
@@ -109,7 +48,8 @@
     "deliverablesTitle": "Entregables",
     "linksTitle": "Enlaces",
     "keywordsTitle": "Keywords",
-    "demoLabel": "Ver demo",
-    "repoLabel": "Ver repositorio"
+    "demoLabel": "Ver en Chrome Web Store",
+    "repoLabel": "Ver repositorio",
+    "noRepoTooltip": "No hay repo público"
   }
 }

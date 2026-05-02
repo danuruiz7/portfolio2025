@@ -1,5 +1,6 @@
 ---
 import { portfolio } from "../data/portfolio";
+import { Menu, X } from "lucide-react";
 
 const navItems = portfolio.basics.nav.filter((item) => !item.disabled);
 const currentPath = Astro.url.pathname;
@@ -15,7 +16,23 @@ const currentPath = Astro.url.pathname;
         {portfolio.basics.name}
       </a>
 
-      <nav aria-label="Principal" class="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+      <button
+        id="menu-toggle"
+        type="button"
+        class="md:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-900 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Abrir menú de navegación"
+      >
+        <Menu className="w-5 h-5 menu-open" />
+        <X className="w-5 h-5 menu-close hidden" />
+      </button>
+
+      <nav 
+        id="main-nav"
+        aria-label="Principal"
+        class="hidden md:flex items-center justify-end gap-2 sm:gap-3"
+      >
         {navItems.map((item) => {
           const isActive = currentPath === item.href;
           return (
@@ -36,4 +53,110 @@ const currentPath = Astro.url.pathname;
       </nav>
     </div>
   </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden fixed inset-0 top-[72px] z-40"
+    role="dialog"
+    aria-label="Menú de navegación móvil"
+    aria-modal="true"
+  >
+    <div class="absolute inset-0 bg-slate-950/95 backdrop-blur" aria-hidden="true"></div>
+    <nav 
+      aria-label="Menú móvil"
+      class="relative z-50 flex flex-col items-center justify-center gap-8 p-8"
+    >
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href;
+        return (
+          <a
+            href={item.href}
+            aria-current={isActive ? "page" : undefined}
+            class:list={[
+              "text-2xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md",
+              isActive
+                ? "text-indigo-300"
+                : "text-slate-300 hover:text-white"
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
 </header>
+
+<script>
+  function initMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpen = toggle?.querySelector('.menu-open');
+    const menuClose = toggle?.querySelector('.menu-close');
+    const mobileNav = document.getElementById('main-nav');
+
+    if (!toggle || !mobileMenu) return;
+
+    function isMobile() {
+      return window.innerWidth < 768;
+    }
+
+    function openMenu() {
+      toggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.remove('hidden');
+      menuOpen?.classList.add('hidden');
+      menuClose?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      const firstLink = mobileMenu?.querySelector('a');
+      (firstLink as HTMLAnchorElement)?.focus();
+    }
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      menuOpen?.classList.remove('hidden');
+      menuClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+      toggle?.focus();
+    }
+
+    toggle.onclick = () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    };
+
+    document.onkeydown = (e) => {
+      if (e.key === 'Escape') {
+        const isExpanded = toggle?.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          closeMenu();
+        }
+      }
+    };
+
+    mobileMenu.onclick = (e) => {
+      if (e.target === mobileMenu || (e.target as Element).closest('nav')) {
+        closeMenu();
+      }
+    };
+
+    function handleResize() {
+      if (!isMobile()) {
+        closeMenu();
+        mobileNav?.classList.remove('hidden');
+      } else {
+        mobileNav?.classList.add('hidden');
+      }
+    }
+
+    window.onresize = handleResize;
+    handleResize();
+  }
+
+  initMenu();
+  document.addEventListener('astro:after-swap', initMenu);
+</script>
