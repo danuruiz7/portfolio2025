@@ -1,19 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import About from "../components/About.astro";
-import Experience from "../components/Experience.astro";
-import Stack from "../components/Stack.astro";
-import Footer from "../components/Footer.astro";
-import { getPortfolio } from "../data/portfolio";
+import Layout from "../../layouts/Layout.astro";
+import About from "../../components/About.astro";
+import Experience from "../../components/Experience.astro";
+import Stack from "../../components/Stack.astro";
+import Footer from "../../components/Footer.astro";
+import { getPortfolio } from "../../data/portfolio";
 
-const portfolio = getPortfolio('es');
+const portfolio = getPortfolio('en');
 const { about, pages } = portfolio;
 ---
 
 <Layout
   title={pages.about.title}
   description={pages.about.description}
-  locale="es"
 >
   <section class="py-16">
     <div class="max-w-4xl">

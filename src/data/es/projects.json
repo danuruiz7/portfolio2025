@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "slug": "traductor-ai",
+      "title": "Traductor AI",
+      "description": "Extensión de Chrome con traducción automática usando la API del navegador. Traduce cualquier texto al instante sin biaya API.",
+      "seoTitle": "Traductor AI | Extensión de Chrome con IA",
+      "seoDescription": "Extensión de Chrome que traduce cualquier texto usando la API gratuita del navegador. Rápida, sin coste de API y disponible en español.",
+      "tags": [
+        "Chrome Extension",
+        "JavaScript",
+        "AI"
+      ],
+      "keywords": [
+        "extensión chrome traducción",
+        "traductor ia gratis",
+        "chrome extension translate"
+      ],
+      "challenge": "Necesidad de traducir textos rápidamente sin salir de la página web y sin coste de API.",
+      "solution": "Desarrollo de extensión de Chrome que utiliza la API gratuita del navegador para traducción instantánea.",
+      "outcome": "Extensión publicada en Chrome Web Store con traducción sin coste de API y disponible para cualquier idioma.",
+      "deliverables": [
+        "Extensión publicada en Chrome Web Store",
+        "Interfaz minimalista",
+        "Traducción con API gratuita",
+        "Soporte multilenguaje"
+      ],
+      "links": {
+        "demo": "https://chromewebstore.google.com/detail/dnnbpmlfihimogfpcpbfieplgeaolgnk?utm_source=item-share-cb"
+      },
+      "image": "/proyectos/traductorAI/traductor_logo.png"
+    }
+  ],
+  "page": {
+    "title": "Proyectos | Daniel Ruiz",
+    "description": "Proyectos de desarrollo web, extensiones Chrome y automatización construidos por Daniel Ruiz.",
+    "eyebrow": "Proyecto",
+    "heading": "Proyecto en producción",
+    "intro": "Extensión de Chrome funcional disponible en Chrome Web Store.",
+    "sectionTitle": "Proyecto",
+    "viewAllLabel": "Ver todos",
+    "caseStudyLabel": "Caso de estudio",
+    "backLabel": "Volver a proyectos",
+    "studyEyebrow": "Caso de estudio",
+    "challengeTitle": "Problema",
+    "solutionTitle": "Solución",
+    "outcomeTitle": "Resultado",
+    "deliverablesTitle": "Entregables",
+    "linksTitle": "Enlaces",
+    "keywordsTitle": "Keywords",
+    "demoLabel": "Ver en Chrome Web Store",
+    "repoLabel": "Ver repositorio",
+    "noRepoTooltip": "No hay repo público"
+  }
+}

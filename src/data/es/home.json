@@ -1,0 +1,35 @@
+{
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Desarrollador con más de 3 años de experiencia creando soluciones eficientes. Me especializo en desarrollo Full Stack, personalización de sistemas CRM/ERP e integración de IA. Con fuerte enfoque en Next.js, orquestación con Docker y automatización, busco siempre la excelencia técnica.",
+    "longDescription": "Trabajo en la intersección entre producto, backend, frontend y automatización. Diseño y desarrollo aplicaciones web rápidas, mantenibles y orientadas a negocio, con especial foco en sistemas internos, paneles operativos, integraciones con IA y procesos que reducen trabajo manual. Mi perfil combina implementación técnica, criterio de arquitectura y ejecución pragmática para entregar software útil en producción.",
+    "highlights": [
+      "Desarrollo full stack con foco en producto y negocio",
+      "Automatización de procesos con IA e integraciones API",
+      "Construcción de interfaces rápidas con Astro, React y Vue",
+      "Backend orientado a servicios, datos y escalabilidad"
+    ]
+  },
+  "faq": [
+    {
+      "question": "¿Qué tipo de proyectos desarrollo?",
+      "answer": "Aplicaciones web, paneles internos, automatizaciones con IA, integraciones y software a medida orientado a negocio."
+    },
+    {
+      "question": "¿Con qué stack trabajo habitualmente?",
+      "answer": "Astro, React, Next.js, Vue.js, Node.js, PHP, PostgreSQL, MySQL, Docker y APIs de IA."
+    },
+    {
+      "question": "¿Trabajo proyectos nuevos o mejoras sobre sistemas existentes?",
+      "answer": "Ambas cosas. Puedo construir desde cero o entrar en productos ya en marcha para mejorar arquitectura, rendimiento o automatización."
+    }
+  ],
+  "page": {
+    "title": "Daniel Ruiz | Desarrollador Full Stack en Madrid",
+    "description": "Desarrollador full stack en Madrid especializado en aplicaciones web, automatización con IA, dashboards y software a medida.",
+    "servicesTitle": "Servicios",
+    "servicesIntro": "Desarrollo web, automatización e implementación de software orientado a negocio.",
+    "servicesCtaLabel": "Ver servicios",
+    "faqTitle": "Preguntas frecuentes"
+  }
+}

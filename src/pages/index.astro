@@ -7,20 +7,22 @@ import Stack from '../components/Stack.astro';
 import Projects from '../components/Projects.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
-import { portfolio } from '../data/portfolio';
+import { getPortfolio } from '../data/portfolio';
+
+const portfolio = getPortfolio('es');
 ---
 
 <Layout
   title={portfolio.pages.home.title}
   description={portfolio.pages.home.description}
 >
-	<Hero />
-	<div class="pb-10">
-		<About />
-		<Experience />
-		<Stack />
-		<Projects />
+  <Hero />
+  <div class="pb-10">
+    <About />
+    <Experience />
+    <Stack />
+    <Projects />
     <Faq />
-	</div>
-	<Footer />
+  </div>
+  <Footer />
 </Layout>

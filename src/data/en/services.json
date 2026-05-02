@@ -1,0 +1,62 @@
+{
+  "services": [
+    {
+      "slug": "desarrollo-web-full-stack",
+      "title": "Full stack web development",
+      "summary": "Custom web applications with frontend, backend, and database.",
+      "description": "I design and build complete web applications with a strong focus on performance, maintainability, and conversion. I cover architecture, implementation, internal dashboards, private areas, APIs, and deployment.",
+      "deliverables": [
+        "Responsive and optimized frontend",
+        "Backend and API aligned with business needs",
+        "Data persistence and domain models",
+        "Deployment and a structure ready to scale"
+      ],
+      "keywords": [
+        "full stack web development",
+        "full stack developer madrid",
+        "custom web applications"
+      ]
+    },
+    {
+      "slug": "automatizacion-e-ia",
+      "title": "Automation and AI",
+      "summary": "Task, workflow, and process automation using AI and APIs.",
+      "description": "I implement automations that reduce manual work, connect tools, and add AI capabilities to internal processes such as classification, content generation, data extraction, and operational assistance.",
+      "deliverables": [
+        "Integrations with OpenAI and external APIs",
+        "Automated business workflows",
+        "Internal tools for teams",
+        "Reduction of repetitive tasks"
+      ],
+      "keywords": [
+        "ai automation",
+        "openai integration",
+        "process automation"
+      ]
+    },
+    {
+      "slug": "dashboards-y-sistemas-internos",
+      "title": "Dashboards and internal systems",
+      "summary": "Operational tools for logistics, sales, management, and reporting.",
+      "description": "I build internal software for teams that need speed, visibility, and control. From CRMs to operational dashboards and tracking systems with metrics, filters, permissions, and real workflows.",
+      "deliverables": [
+        "Custom dashboards",
+        "Internal systems with roles and permissions",
+        "Reporting and data visualization",
+        "Integration with ERPs, CRMs, and external sources"
+      ],
+      "keywords": [
+        "dashboard development",
+        "internal software for companies",
+        "operational dashboards"
+      ]
+    }
+  ],
+  "page": {
+    "title": "Web Development and Automation Services | Daniel Ruiz",
+    "description": "Full stack development, AI automation, and dashboard and internal systems creation services.",
+    "eyebrow": "Services",
+    "heading": "Web development, automation, and business-focused technical implementation",
+    "intro": "I work on projects where software must solve real operations: acquisition, management, reporting, integrations, and reduction of manual work."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "services": [
+    {
+      "slug": "desarrollo-web-full-stack",
+      "title": "Desarrollo web full stack",
+      "summary": "Aplicaciones web a medida con frontend, backend y base de datos.",
+      "description": "Diseño y desarrollo aplicaciones web completas con enfoque en rendimiento, mantenibilidad y conversión. Cubro arquitectura, implementación, paneles internos, áreas privadas, APIs y despliegue.",
+      "deliverables": [
+        "Frontend responsive y optimizado",
+        "Backend y API conectados a negocio",
+        "Persistencia de datos y modelos",
+        "Despliegue y estructura preparada para escalar"
+      ],
+      "keywords": [
+        "desarrollo web full stack",
+        "desarrollador full stack madrid",
+        "aplicaciones web a medida"
+      ]
+    },
+    {
+      "slug": "automatizacion-e-ia",
+      "title": "Automatización e IA",
+      "summary": "Automatización de tareas, flujos y procesos con IA y APIs.",
+      "description": "Implemento automatizaciones que reducen trabajo manual, conectan herramientas y añaden capacidades de IA a procesos internos como clasificación, generación de contenido, extracción de datos y asistencia operativa.",
+      "deliverables": [
+        "Integraciones con OpenAI y APIs externas",
+        "Flujos automatizados para negocio",
+        "Herramientas internas para equipos",
+        "Reducción de tareas repetitivas"
+      ],
+      "keywords": [
+        "automatizacion con ia",
+        "integracion openai",
+        "automatizacion de procesos"
+      ]
+    },
+    {
+      "slug": "dashboards-y-sistemas-internos",
+      "title": "Dashboards y sistemas internos",
+      "summary": "Herramientas operativas para logística, ventas, gestión y reporting.",
+      "description": "Construyo software interno para equipos que necesitan velocidad, visibilidad y control. Desde CRMs a paneles operativos y sistemas de seguimiento con métricas, filtros, permisos y flujos reales.",
+      "deliverables": [
+        "Paneles de control personalizados",
+        "Sistemas internos con roles y permisos",
+        "Reporting y visualización de datos",
+        "Integración con ERPs, CRMs y fuentes externas"
+      ],
+      "keywords": [
+        "desarrollo dashboards",
+        "software interno para empresas",
+        "paneles operativos"
+      ]
+    }
+  ],
+  "page": {
+    "title": "Servicios de desarrollo web y automatización | Daniel Ruiz",
+    "description": "Servicios de desarrollo full stack, automatización con IA y creación de dashboards y sistemas internos.",
+    "eyebrow": "Servicios",
+    "heading": "Desarrollo web, automatización e implementación técnica orientada a negocio",
+    "intro": "Trabajo proyectos donde el software tiene que resolver operación real: captación, gestión, reporting, integraciones y reducción de trabajo manual."
+  }
+}

@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import privacyEs from "../data/es/privacy.json";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import privacyEn from "../../data/en/privacy.json";
 
-const privacyData = privacyEs;
+const privacyData = privacyEn;
 ---
 
-<Layout title={privacyData.title} description={privacyData.description} locale="es">
+<Layout title={privacyData.title} description={privacyData.description} locale="en">
   <section class="py-16">
     <div class="mx-auto max-w-4xl">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">

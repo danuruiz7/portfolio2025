@@ -1,7 +1,9 @@
 ---
-import { portfolio } from "../data/portfolio";
+import { getPortfolio } from "../data/portfolio";
+import { getLocaleFromPath } from "../i18n/config";
 import { Monitor, Server, Box, Layers, Code2, Database, Container, Terminal, Cpu } from "lucide-react";
 
+const portfolio = getPortfolio(getLocaleFromPath(Astro.url.pathname));
 const { stack } = portfolio;
 
 // Helper to get icon for category

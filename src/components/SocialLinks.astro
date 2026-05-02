@@ -1,7 +1,9 @@
 ---
-import { portfolio } from "../data/portfolio";
+import { getPortfolio } from "../data/portfolio";
+import { getLocaleFromPath } from "../i18n/config";
 import { Mail } from "lucide-react";
 
+const portfolio = getPortfolio(getLocaleFromPath(Astro.url.pathname));
 const { basics } = portfolio;
 const { links, email } = basics;
 interface Props {

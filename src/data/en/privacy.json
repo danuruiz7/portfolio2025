@@ -1,0 +1,85 @@
+{
+  "title": "Privacy Policy | Traductor AI",
+  "description": "Privacy policy for the Traductor AI extension for Google Chrome.",
+  "heading": "Traductor AI Privacy Policy",
+  "lastUpdatedLabel": "Last updated",
+  "lastUpdated": "April 7, 2026",
+  "intro": "Traductor AI is a Google Chrome extension that allows translating selected text within editable fields and web editors using the browser's native translation API.",
+  "sections": [
+    {
+      "title": "1. Information collected by the extension",
+      "paragraphs": [
+        "Traductor AI does not collect, sell, or share personal user information.",
+        "The extension does not create accounts, does not require login, and does not collect names, addresses, emails, phones, mailing addresses, personal identifiers, or payment information."
+      ]
+    },
+    {
+      "title": "2. Data accessed by the extension",
+      "paragraphs": [
+        "The extension can only access:"
+      ],
+      "items": [
+        "the text that the user manually selects within an editable field or web editor",
+        "the target language preference saved by the user in the browser"
+      ],
+      "closing": "This access is only used to perform the function requested by the user: translating the selected text."
+    },
+    {
+      "title": "3. How data is used",
+      "paragraphs": [
+        "Selected text is used exclusively to:"
+      ],
+      "items": [
+        "detect the language of the selected snippet",
+        "translate that snippet to the target language chosen by the user",
+        "replace the selected text with the translation within the page, when requested by the user"
+      ],
+      "closing": "The target language preference is stored locally using the browser's storage APIs to remember the user's settings."
+    },
+    {
+      "title": "4. Data transfer",
+      "paragraphs": [
+        "Traductor AI does not transmit data to the developer's own servers.",
+        "The extension uses native browser APIs such as Translator and LanguageDetector, available in Google Chrome. The operation of those APIs depends on the user's browser."
+      ]
+    },
+    {
+      "title": "5. Storage",
+      "paragraphs": [
+        "The extension only stores locally the basic configuration necessary to function, such as the target language selected by the user.",
+        "No translation histories, credentials, messages, or user profiles are stored."
+      ]
+    },
+    {
+      "title": "6. Data sharing",
+      "paragraphs": [
+        "Traductor AI does not sell data, does not rent data, and does not share personal data with third parties for advertising, analytics, or marketing purposes."
+      ]
+    },
+    {
+      "title": "7. Security",
+      "paragraphs": [
+        "The extension is designed to minimize access to data and limit its use to the main translation function expressly requested by the user."
+      ]
+    },
+    {
+      "title": "8. Children",
+      "paragraphs": [
+        "Traductor AI is not specifically directed to children and does not knowingly collect personal information from minors."
+      ]
+    },
+    {
+      "title": "9. Changes to this policy",
+      "paragraphs": [
+        "This privacy policy may be updated if the extension's functionality changes. The date of the last update will be indicated at the beginning of this document."
+      ]
+    },
+    {
+      "title": "10. Contact",
+      "paragraphs": [
+        "If you have questions about this privacy policy, you can contact us at:"
+      ],
+      "contactEmail": "danuruiz7@gmail.com"
+    }
+  ]
+}

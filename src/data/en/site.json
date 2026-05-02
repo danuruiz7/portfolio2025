@@ -1,0 +1,122 @@
+{
+  "basics": {
+    "name": "Daniel Ruiz",
+    "headline": "<Full Stack & Automation />",
+    "subHeadline": "Turning ideas into high-impact digital experiences.",
+    "image": "images/me.webp",
+    "email": "danuruiz7@hotmail.com",
+    "seoTitle": "Daniel Ruiz | Full Stack Developer in Madrid",
+    "seoDescription": "Full stack developer in Madrid specialized in web applications, AI automation, dashboards and custom software.",
+    "footerText": "Daniel Ruiz. All rights reserved.",
+    "links": {
+      "github": "https://github.com/DanuRuiz7",
+      "linkedin": "https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
+    },
+    "nav": [
+      {
+        "href": "/en/",
+        "label": "Home"
+      },
+      {
+        "href": "/en/about",
+        "label": "About"
+      },
+      {
+        "href": "/en/services",
+        "label": "Services"
+      },
+      {
+        "href": "/en/projects",
+        "label": "Projects",
+        "disabled": true
+      }
+    ],
+    "actions": [
+      {
+        "label": "Projects",
+        "href": "#experience",
+        "variant": "primary",
+        "target": "",
+        "rel": ""
+      },
+      {
+        "label": "Contact",
+        "href": "https://www.linkedin.com/in/daniel-elias-ruiz-medina/",
+        "variant": "secondary",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ]
+  },
+  "stack": [
+    {
+      "category": "Frontend",
+      "technologies": [
+        "React",
+        "Next.js",
+        "Astro",
+        "Vue.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ]
+    },
+    {
+      "category": "Backend",
+      "technologies": [
+        "Node.js",
+        "Express",
+        "PHP",
+        "Java"
+      ]
+    },
+    {
+      "category": "Database",
+      "technologies": [
+        "PostgreSQL",
+        "MySQL",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "category": "DevOps & Tools",
+      "technologies": [
+        "Docker",
+        "n8n",
+        "Git",
+        "Jira"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "AMURA IT",
+      "role": "Full stack developer",
+      "date": "Apr 2025 - Present",
+      "description": "Development of logistics platform for truck and delivery management. Implementation of backend microservices in Node.js and UI in Vue.js. Complex data management with MySQL and Elasticsearch.",
+      "skills": [
+        "Vue.js",
+        "Node.js",
+        "Microservices",
+        "Elasticsearch",
+        "MySQL",
+        "Jira"
+      ],
+      "type": "Hybrid - Madrid"
+    },
+    {
+      "company": "Tracom Consulting",
+      "role": "Full stack developer",
+      "date": "Dec 2023 - Apr 2025",
+      "description": "Customization of Dolibarr CRM/ERP and development of modules with AI (OpenAI API) for invoice automation. Frontend modernization by introducing React and creation of internal tools with Next.js.",
+      "skills": [
+        "React",
+        "Next.js",
+        "PHP",
+        "Dolibarr",
+        "OpenAI API",
+        "Automation"
+      ],
+      "type": "Hybrid - Madrid"
+    }
+  ]
+}

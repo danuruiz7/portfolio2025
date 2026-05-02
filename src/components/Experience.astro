@@ -1,7 +1,9 @@
 ---
-import { portfolio } from "../data/portfolio";
+import { getPortfolio } from "../data/portfolio";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { getLocaleFromPath } from "../i18n/config";
 
+const portfolio = getPortfolio(getLocaleFromPath(Astro.url.pathname));
 const { experience } = portfolio;
 ---
 

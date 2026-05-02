@@ -1,58 +1,85 @@
 ---
-import { portfolio } from "../data/portfolio";
+import { getPortfolio } from "../data/portfolio";
 import { Menu, X } from "lucide-react";
+import { translatePath } from "../i18n/routes";
+import type { Locale } from "../i18n/config";
 
-const navItems = portfolio.basics.nav.filter((item) => !item.disabled);
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const data = getPortfolio(locale);
+const navItems = data.basics.nav.filter((item) => !item.disabled);
 const currentPath = Astro.url.pathname;
+
+function getNavHref(href: string): string {
+  if (href.startsWith('#') || href.startsWith('http')) {
+    return href;
+  }
+  if (locale === 'en') {
+    return translatePath(href, 'en');
+  }
+  return href;
+}
 ---
 
 <header class="sticky top-0 z-50 py-4">
   <div class="rounded-2xl border border-slate-800/80 bg-slate-950/75 px-4 py-3 backdrop-blur">
     <div class="flex items-center justify-between gap-4">
       <a
-        href="/"
+        href={locale === 'en' ? '/en/' : '/'}
         class="text-sm font-semibold tracking-[0.2em] text-slate-200 uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md"
       >
-        {portfolio.basics.name}
+        {data.basics.name}
       </a>
 
-      <button
-        id="menu-toggle"
-        type="button"
-        class="md:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-900 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-        aria-expanded="false"
-        aria-controls="main-nav"
-        aria-label="Abrir menú de navegación"
-      >
-        <Menu className="w-5 h-5 menu-open" />
-        <X className="w-5 h-5 menu-close hidden" />
-      </button>
+      <div class="flex items-center gap-3">
+        <nav 
+          id="main-nav"
+          aria-label="Principal"
+          class="hidden md:flex items-center justify-end gap-2 sm:gap-3"
+        >
+          {navItems.map((item) => {
+            const isActive = currentPath === item.href || (locale === 'en' && currentPath === item.href.replace('/', '/en/'));
+            return (
+              <a
+                href={getNavHref(item.href)}
+                aria-current={isActive ? "page" : undefined}
+                class:list={[
+                  "rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
+                  isActive
+                    ? "bg-indigo-500/15 text-indigo-300"
+                    : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                ]}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
 
-      <nav 
-        id="main-nav"
-        aria-label="Principal"
-        class="hidden md:flex items-center justify-end gap-2 sm:gap-3"
-      >
-        {navItems.map((item) => {
-          const isActive = currentPath === item.href;
-          return (
-            <a
-              href={item.href}
-              aria-current={isActive ? "page" : undefined}
-              class:list={[
-                "rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
-                isActive
-                  ? "bg-indigo-500/15 text-indigo-300"
-                  : "text-slate-300 hover:bg-slate-900 hover:text-white"
-              ]}
-            >
-              {item.label}
-            </a>
-          );
-        })}
-      </nav>
-    </div>
-  </div>
+        <select
+          id="lang-select"
+          class="text-xs font-medium px-2 py-1.5 rounded bg-slate-900/50 text-slate-300 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
+          aria-label="Cambiar idioma"
+        >
+          <option value="es" selected={locale === 'es'}>ES</option>
+          <option value="en" selected={locale === 'en'}>EN</option>
+        </select>
+
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-900 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          aria-label="Abrir menú de navegación"
+        >
+          <Menu className="w-5 h-5 menu-open" />
+          <X className="w-5 h-5 menu-close hidden" />
+        </button>
+      </div>
 
   <div
     id="mobile-menu"
@@ -70,7 +97,7 @@ const currentPath = Astro.url.pathname;
         const isActive = currentPath === item.href;
         return (
           <a
-            href={item.href}
+            href={getNavHref(item.href)}
             aria-current={isActive ? "page" : undefined}
             class:list={[
               "text-2xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md",
@@ -159,4 +186,59 @@ const currentPath = Astro.url.pathname;
 
   initMenu();
   document.addEventListener('astro:after-swap', initMenu);
+
+  const langSelect = document.getElementById('lang-select') as HTMLSelectElement;
+  if (langSelect) {
+    langSelect.addEventListener('change', (e) => {
+      const target = e.target as HTMLSelectElement;
+      const newLocale = target.value;
+      const path = window.location.pathname;
+      
+      const esToEn: Record<string, string> = {
+        '/': '/en/',
+        '/sobre-mi': '/en/about',
+        '/servicios': '/en/services',
+        '/proyectos': '/en/projects',
+        '/privacy': '/en/privacy'
+      };
+      
+      const enToEs: Record<string, string> = {
+        '/en/': '/',
+        '/en/about': '/sobre-mi',
+        '/en/services': '/servicios',
+        '/en/projects': '/proyectos',
+        '/en/privacy': '/privacy'
+      };
+      
+      if (newLocale === 'en') {
+        // Switch to English
+        const mapped = esToEn[path];
+        if (mapped) {
+          window.location.href = mapped;
+        } else if (path.startsWith('/en/projects/')) {
+          window.location.href = path;
+        } else if (path.startsWith('/proyectos/')) {
+          const slug = path.replace('/proyectos/', '');
+          window.location.href = '/en/projects/' + slug;
+        } else if (path.startsWith('/en/')) {
+          window.location.href = '/en/';
+        } else {
+          window.location.href = '/en/';
+        }
+      } else {
+        // Switch to Spanish
+        const mapped = enToEs[path] || enToEs[path + '/'];
+        if (mapped) {
+          window.location.href = mapped;
+        } else if (path.startsWith('/proyectos/')) {
+          window.location.href = path;
+        } else if (path.startsWith('/en/projects/')) {
+          const slug = path.replace('/en/projects/', '');
+          window.location.href = '/proyectos/' + slug;
+        } else {
+          window.location.href = '/';
+        }
+      }
+    });
+  }
 </script>

@@ -1,17 +1,24 @@
 import type { APIRoute } from "astro";
-import { portfolio } from "../data/portfolio";
+import { getPortfolio } from "../data/portfolio";
 
-const staticUrls = [
-  "",
-  "/sobre-mi",
-  "/servicios",
-  "/proyectos"
-];
+const staticUrls = {
+  es: ["", "/sobre-mi", "/servicios", "/proyectos", "/privacy"],
+  en: ["/en", "/en/about", "/en/services", "/en/projects", "/en/privacy"]
+};
 
 export const GET: APIRoute = () => {
+  const portfolioEs = getPortfolio('es');
+  const portfolioEn = getPortfolio('en');
+  
+  const projectPaths = portfolioEs.projects.flatMap((project) => [
+    `/proyectos/${project.slug}`,
+    `/en/projects/${project.slug}`
+  ]);
+
   const urls = [
-    ...staticUrls,
-    ...portfolio.projects.map((project) => `/proyectos/${project.slug}`)
+    ...staticUrls.es,
+    ...staticUrls.en,
+    ...projectPaths
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
@@ -21,7 +28,7 @@ ${urls
     (path) => `  <url>
     <loc>https://druiz.dev${path}</loc>
     <changefreq>weekly</changefreq>
-    <priority>${path === "" ? "1.0" : "0.8"}</priority>
+    <priority>${path === "" || path === "/en" ? "1.0" : "0.8"}</priority>
   </url>`
   )
   .join("\n")}

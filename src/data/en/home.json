@@ -1,0 +1,35 @@
+{
+  "about": {
+    "title": "About Me",
+    "description": "Developer with over 3 years of experience creating efficient solutions. I specialize in Full Stack development, CRM/ERP system customization and AI integration. With a strong focus on Next.js, Docker orchestration and automation, I always strive for technical excellence.",
+    "longDescription": "I work at the intersection of product, backend, frontend and automation. I design and develop fast, maintainable and business-oriented web applications, with a special focus on internal systems, operational panels, AI integrations and processes that reduce manual work. My profile combines technical implementation, architectural judgment and pragmatic execution to deliver useful software in production.",
+    "highlights": [
+      "Full stack development with product and business focus",
+      "Process automation with AI and API integrations",
+      "Fast interface building with Astro, React and Vue",
+      "Backend oriented to services, data and scalability"
+    ]
+  },
+  "faq": [
+    {
+      "question": "What type of projects do I develop?",
+      "answer": "Web applications, internal panels, AI automation, integrations and custom software oriented to business."
+    },
+    {
+      "question": "What stack do I usually work with?",
+      "answer": "Astro, React, Next.js, Vue.js, Node.js, PHP, PostgreSQL, MySQL, Docker and AI APIs."
+    },
+    {
+      "question": "Do I work on new projects or improvements on existing systems?",
+      "answer": "Both. I can build from scratch or enter products already in progress to improve architecture, performance or automation."
+    }
+  ],
+  "page": {
+    "title": "Daniel Ruiz | Full Stack Developer in Madrid",
+    "description": "Full stack developer in Madrid specialized in web applications, AI automation, dashboards and custom software.",
+    "servicesTitle": "Services",
+    "servicesIntro": "Web development, automation and business-oriented software implementation.",
+    "servicesCtaLabel": "View services",
+    "faqTitle": "Frequently Asked Questions"
+  }
+}

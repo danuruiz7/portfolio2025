@@ -1,9 +1,15 @@
 ---
-import { portfolio } from "../data/portfolio";
+import { getPortfolio } from "../data/portfolio";
+import { getLocaleFromPath } from "../i18n/config";
 import { Github, ExternalLink, ArrowUpRight, FolderOpen } from "lucide-react";
 
+const locale = getLocaleFromPath(Astro.url.pathname);
+const portfolio = getPortfolio(locale);
 const { projects, pages } = portfolio;
 const hasRepo = (repo?: string) => repo && repo.length > 0;
+const projectsIndexHref = locale === "en" ? "/en/projects" : "/proyectos";
+const getProjectHref = (slug: string) =>
+  locale === "en" ? `/en/projects/${slug}` : `/proyectos/${slug}`;
 ---
 
 <section id="projects" class="py-20 scroll-mt-20">
@@ -15,7 +21,7 @@ const hasRepo = (repo?: string) => repo && repo.length > 0;
             </div>
             <h2 class="text-3xl font-bold text-white">{pages.projects.sectionTitle}</h2>
         </div>
-        <a href="/proyectos" class="hidden md:flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md">
+        <a href={projectsIndexHref} class="hidden md:flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md">
             {pages.projects.viewAllLabel} <ArrowUpRight className="w-4 h-4" />
         </a>
     </div>
@@ -54,7 +60,7 @@ const hasRepo = (repo?: string) => repo && repo.length > 0;
                 
                 <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
                   <a
-                    href={`/proyectos/${project.slug}`}
+                    href={getProjectHref(project.slug)}
                     class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md"
                   >
                     {project.title}
@@ -67,7 +73,7 @@ const hasRepo = (repo?: string) => repo && repo.length > 0;
                 
                 <div class="flex flex-wrap items-center gap-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                     <a
-                        href={`/proyectos/${project.slug}`}
+                        href={getProjectHref(project.slug)}
                         class="px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-white transition-colors hover:text-indigo-300"
                     >
                         {pages.projects.caseStudyLabel}

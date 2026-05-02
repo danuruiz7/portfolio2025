@@ -4,71 +4,88 @@ import { getImage } from "astro:assets";
 import meImage from "../assets/images/me.webp";
 import Analytics from "@vercel/analytics/astro";
 import Header from "../components/Header.astro";
+import { getLocaleFromPath, SITE } from "../i18n/config";
+import { translatePath } from "../i18n/routes";
 
 interface Props {
-	title: string;
-	description?: string;
-	robots?: string;
+  title: string;
+  description?: string;
+  robots?: string;
 }
 
 const {
-	title,
-	description = "Daniel Ruiz - Full Stack Developer & Automation Expert",
-	robots = "index,follow"
+  title,
+  description = "Daniel Ruiz - Full Stack Developer & Automation Expert",
+  robots = "index,follow"
 } = Astro.props;
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const currentPath = Astro.url.pathname;
+
 const optimizedImage = await getImage({src: meImage, format: 'webp'});
 const socialImageURL = new URL(optimizedImage.src, Astro.url);
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+
+const canonicalURL = new URL(currentPath, SITE);
+const alternateEn = translatePath(currentPath, "en");
+const alternateEs = translatePath(currentPath, "es");
+
+const canonicalEnURL = new URL(alternateEn, SITE);
+const canonicalEsURL = new URL(alternateEs, SITE);
+
 const structuredData = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	name: "Daniel Ruiz",
-	url: canonicalURL.toString(),
-	image: socialImageURL.toString(),
-	jobTitle: "Full Stack Developer",
-	email: "mailto:danuruiz7@hotmail.com",
-	sameAs: [
-		"https://github.com/DanuRuiz7",
-		"https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
-	]
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Daniel Ruiz",
+  url: canonicalURL.toString(),
+  image: socialImageURL.toString(),
+  jobTitle: "Full Stack Developer",
+  email: "mailto:danuruiz7@hotmail.com",
+  sameAs: [
+    "https://github.com/DanuRuiz7",
+    "https://www.linkedin.com/in/daniel-elias-ruiz-medina/"
+  ]
 };
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="robots" content={robots} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="canonical" href={canonicalURL} />
-		<link rel="icon" type="image/svg+xml" href="/logowhite.svg" />
-		<meta name="generator" content={Astro.generator} />
+<html lang={locale} class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/logowhite.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="alternate" hreflang="es" href={canonicalEsURL} />
+    <link rel="alternate" hreflang="en" href={canonicalEnURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
     <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={socialImageURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
 
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={socialImageURL} />
-		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-		<title>{title}</title>
-	</head>
-	<body class="bg-background text-foreground antialiased selection:bg-indigo-500 selection:text-white">
-		<div class="fixed inset-0 -z-10 h-full w-full bg-slate-950 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] opacity-20"></div>
-		<main class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Header />
-			<slot />
-		</main>
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-foreground antialiased selection:bg-indigo-500 selection:text-white">
+    <div class="fixed inset-0 -z-10 h-full w-full bg-slate-950 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] opacity-20"></div>
+    <main class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Header locale={locale} />
+      <slot />
+    </main>
     <script>
       const observerOptions = {
         root: null,
@@ -91,7 +108,46 @@ const structuredData = {
       }
       
       setupObserver();
+
+      (function() {
+        const STORAGE_KEY = 'preferred-locale';
+        const PREFERRED_LOCALE_KEY = 'preferred-locale-set';
+        
+        function getBrowserLocale() {
+          const lang = navigator.language || navigator.languages?.[0];
+          if (!lang) return null;
+          if (lang.startsWith('en')) return 'en';
+          return null;
+        }
+        
+        function hasSetPreference() {
+          return localStorage.getItem(PREFERRED_LOCALE_KEY) === 'true';
+        }
+        
+        function setPreference(locale) {
+          localStorage.setItem(STORAGE_KEY, locale);
+          localStorage.setItem(PREFERRED_LOCALE_KEY, 'true');
+        }
+        
+        const currentLocale = document.documentElement.lang;
+        const browserLocale = getBrowserLocale();
+        
+        const esToEn: Record<string, string> = {
+          '/': '/en/',
+          '/sobre-mi': '/en/about',
+          '/servicios': '/en/services',
+          '/proyectos': '/en/projects',
+          '/privacy': '/en/privacy'
+        };
+        
+        if (!hasSetPreference() && browserLocale === 'en' && currentLocale === 'es') {
+          const path = window.location.pathname;
+          const mapped = esToEn[path] || '/en/';
+          setPreference('en');
+          window.location.href = mapped;
+        }
+      })();
     </script>
     <Analytics />
-	</body>
+  </body>
 </html>

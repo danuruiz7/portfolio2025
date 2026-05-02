@@ -1,13 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Footer.astro";
-import { getPortfolio } from "../../data/portfolio";
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import { getPortfolio } from "../../../data/portfolio";
 
 export function getStaticPaths() {
-  const portfolioEs = getPortfolio('es');
-  return portfolioEs.projects.map((project) => ({
+  const portfolioEn = getPortfolio('en');
+  return portfolioEn.projects.map((project) => ({
     params: { slug: project.slug },
-    props: { project, locale: 'es' }
+    props: { project, locale: 'en' }
   }));
 }
 
@@ -21,7 +21,7 @@ const isRepoAvailable = hasRepo(project.links.repo);
 <Layout title={project.seoTitle} description={project.seoDescription}>
   <article class="py-16">
     <a
-      href="/proyectos"
+      href="/en/projects"
       class="inline-flex rounded-lg border border-slate-800 px-4 py-2 text-sm text-slate-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
     >
       {projectsPage.backLabel}

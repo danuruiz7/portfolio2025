@@ -1,0 +1,85 @@
+{
+  "title": "Política de privacidad | Traductor AI",
+  "description": "Política de privacidad de la extensión Traductor AI para Google Chrome.",
+  "heading": "Política de Privacidad de Traductor AI",
+  "lastUpdatedLabel": "Última actualización",
+  "lastUpdated": "7 de abril de 2026",
+  "intro": "Traductor AI es una extensión para Google Chrome que permite traducir texto seleccionado dentro de campos editables y editores web mediante la API nativa de traducción del navegador.",
+  "sections": [
+    {
+      "title": "1. Información que recopila la extensión",
+      "paragraphs": [
+        "Traductor AI no recopila, vende ni comparte información personal de los usuarios.",
+        "La extensión no crea cuentas, no solicita inicio de sesión y no recopila nombres, direcciones, correos electrónicos, teléfonos, direcciones postales, identificadores personales ni información de pago."
+      ]
+    },
+    {
+      "title": "2. Datos a los que accede la extensión",
+      "paragraphs": [
+        "La extensión puede acceder únicamente a:"
+      ],
+      "items": [
+        "el texto que el usuario selecciona manualmente dentro de un campo editable o editor web",
+        "la preferencia de idioma de destino guardada por el usuario en el navegador"
+      ],
+      "closing": "Ese acceso solo se utiliza para ejecutar la función solicitada por el usuario: traducir el texto seleccionado."
+    },
+    {
+      "title": "3. Cómo se usan los datos",
+      "paragraphs": [
+        "El texto seleccionado se usa exclusivamente para:"
+      ],
+      "items": [
+        "detectar el idioma del fragmento seleccionado",
+        "traducir ese fragmento al idioma de destino elegido por el usuario",
+        "reemplazar el texto seleccionado por la traducción dentro de la página, cuando el usuario lo solicita"
+      ],
+      "closing": "La preferencia de idioma de destino se almacena localmente usando las APIs de almacenamiento del navegador para recordar la configuración del usuario."
+    },
+    {
+      "title": "4. Transferencia de datos",
+      "paragraphs": [
+        "Traductor AI no transmite datos a servidores propios del desarrollador.",
+        "La extensión utiliza las APIs nativas del navegador, como Translator y LanguageDetector, disponibles en Google Chrome. El funcionamiento de esas APIs depende del navegador del usuario."
+      ]
+    },
+    {
+      "title": "5. Almacenamiento",
+      "paragraphs": [
+        "La extensión solo almacena localmente la configuración básica necesaria para funcionar, como el idioma de destino seleccionado por el usuario.",
+        "No se almacenan historiales de traducción, credenciales, mensajes ni perfiles de usuario."
+      ]
+    },
+    {
+      "title": "6. Compartición de datos",
+      "paragraphs": [
+        "Traductor AI no vende datos, no alquila datos y no comparte datos personales con terceros para fines publicitarios, analíticos o de marketing."
+      ]
+    },
+    {
+      "title": "7. Seguridad",
+      "paragraphs": [
+        "La extensión está diseñada para minimizar el acceso a datos y limitar su uso a la función principal de traducción solicitada expresamente por el usuario."
+      ]
+    },
+    {
+      "title": "8. Menores",
+      "paragraphs": [
+        "Traductor AI no está dirigida específicamente a menores y no recopila conscientemente información personal de menores de edad."
+      ]
+    },
+    {
+      "title": "9. Cambios en esta política",
+      "paragraphs": [
+        "Esta política de privacidad puede actualizarse si cambia el funcionamiento de la extensión. La fecha de la última actualización se indicará al inicio de este documento."
+      ]
+    },
+    {
+      "title": "10. Contacto",
+      "paragraphs": [
+        "Si tienes preguntas sobre esta política de privacidad, puedes contactar en:"
+      ],
+      "contactEmail": "danuruiz7@gmail.com"
+    }
+  ]
+}

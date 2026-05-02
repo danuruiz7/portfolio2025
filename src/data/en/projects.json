@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "slug": "traductor-ai",
+      "title": "Traductor AI",
+      "description": "Chrome extension with automatic translation powered by the browser API. Translates any text instantly with no API cost.",
+      "seoTitle": "Traductor AI | AI Chrome Extension",
+      "seoDescription": "Chrome extension that translates any text using the browser's free API. Fast, no API cost, and available in Spanish.",
+      "tags": [
+        "Chrome Extension",
+        "JavaScript",
+        "AI"
+      ],
+      "keywords": [
+        "chrome translation extension",
+        "free ai translator",
+        "chrome extension translate"
+      ],
+      "challenge": "The need to translate text quickly without leaving the webpage and without API costs.",
+      "solution": "Development of a Chrome extension that uses the browser's free API for instant translation.",
+      "outcome": "Extension published on the Chrome Web Store with zero API cost translation and support for any language.",
+      "deliverables": [
+        "Extension published on the Chrome Web Store",
+        "Minimal interface",
+        "Translation with a free API",
+        "Multilanguage support"
+      ],
+      "links": {
+        "demo": "https://chromewebstore.google.com/detail/dnnbpmlfihimogfpcpbfieplgeaolgnk?utm_source=item-share-cb"
+      },
+      "image": "/proyectos/traductorAI/traductor_logo.png"
+    }
+  ],
+  "page": {
+    "title": "Projects | Daniel Ruiz",
+    "description": "Web development, Chrome extension, and automation projects built by Daniel Ruiz.",
+    "eyebrow": "Project",
+    "heading": "Production project",
+    "intro": "Working Chrome extension available on the Chrome Web Store.",
+    "sectionTitle": "Project",
+    "viewAllLabel": "View all",
+    "caseStudyLabel": "Case study",
+    "backLabel": "Back to projects",
+    "studyEyebrow": "Case study",
+    "challengeTitle": "Challenge",
+    "solutionTitle": "Solution",
+    "outcomeTitle": "Outcome",
+    "deliverablesTitle": "Deliverables",
+    "linksTitle": "Links",
+    "keywordsTitle": "Keywords",
+    "demoLabel": "View on Chrome Web Store",
+    "repoLabel": "View repository",
+    "noRepoTooltip": "There is no public repository"
+  }
+}
